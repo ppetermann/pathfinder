@@ -1,0 +1,22 @@
+{
+    "name": "devedge/pathfinder",
+    "description": "A PHP Library implementing path finding in PHP, currently including only an a* implementation",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peter Petermann",
+            "email": "ppetermann80@googlemail.com"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "support": {
+        "issues": "https://github.com/ppetermann/pathfinder/issues"
+    },
+    "autoload": {
+        "psr-4": { "Devedge\\PathFinder\\": "src/Devedge/PathFinder"}
+    }
+}
