@@ -6,13 +6,20 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/ppetermann/pathfinder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ppetermann/pathfinder/?branch=master)
 
 ## ABOUT
-TODO: add more information
-this is a simple a* implementation
+basically this is a this is a simple a* implementation, which can be used in PHP projects,
+it was created for https://cmdr.club/routes/, but is build generic enough to be used
+in other cases.
 
 ## USAGE
 TODO: add more documentation
-see tests/PathFinder/AStarTest for an example
+basically what you have to do is create a Node implementation derived from PathFinder\Node,
+implementing its abstract methods (and if you need overwrite the others).
+
+see tests/PathFinder/AStarTest.php for an example
+
+more docs to come
 
 ## LINKS
 https://devedge.eu
 https://github.com/ppetermann/pathfinder
+https://cmdr.club/routes/
