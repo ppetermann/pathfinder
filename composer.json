@@ -17,6 +17,6 @@
         "issues": "https://github.com/ppetermann/pathfinder/issues"
     },
     "autoload": {
-        "psr-4": { "Devedge\\PathFinder\\": "src/Devedge/PathFinder"}
+        "psr-4": { "PathFinder\\": "src/PathFinder"}
     }
 }

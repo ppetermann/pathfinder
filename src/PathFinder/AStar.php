@@ -1,5 +1,5 @@
 <?php
-namespace Devedge\PathFinder;
+namespace PathFinder;
 
 class AStar
 {
