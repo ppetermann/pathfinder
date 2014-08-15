@@ -58,6 +58,7 @@ abstract class Node
         if (!$this->parent) {
             return $this->getOwnCost();
         }
+
         return $this->parent->getGCost() + $this->getOwnCost();
     }
 
@@ -94,6 +95,7 @@ abstract class Node
 
     /**
      * should return a unique string for this
+     *
      * @todo replace with an own method
      * @return string
      */
@@ -102,6 +104,7 @@ abstract class Node
     /**
      * this method should allow a node
      * to get the data from the target node getHostCost requires for its heuristic (if needed)
+     *
      * @return array
      */
     public function getDataForH()

@@ -31,6 +31,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * Class AStarTest
+ *
  * @todo add a test where there is no middle field
  * @package PathFinder
  */
@@ -50,17 +51,17 @@ class AStarTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         // create 3x3 fields
-        $this->field1x1 = new TestNode('field1x1', 1,1);
-        $this->field2x1 = new TestNode('field2x1', 2,1);
-        $this->field3x1 = new TestNode('field3x1', 3,1);
+        $this->field1x1 = new TestNode('field1x1', 1, 1);
+        $this->field2x1 = new TestNode('field2x1', 2, 1);
+        $this->field3x1 = new TestNode('field3x1', 3, 1);
 
-        $this->field1x2 = new TestNode('field1x2', 1,2);
-        $this->field2x2 = new TestNode('field2x2', 2,2);
-        $this->field3x2 = new TestNode('field3x2', 3,2);
+        $this->field1x2 = new TestNode('field1x2', 1, 2);
+        $this->field2x2 = new TestNode('field2x2', 2, 2);
+        $this->field3x2 = new TestNode('field3x2', 3, 2);
 
-        $this->field1x3 = new TestNode('field1x3', 1,3);
-        $this->field2x3 = new TestNode('field2x3', 2,3);
-        $this->field3x3 = new TestNode('field3x3', 3,3);
+        $this->field1x3 = new TestNode('field1x3', 1, 3);
+        $this->field2x3 = new TestNode('field2x3', 2, 3);
+        $this->field3x3 = new TestNode('field3x3', 3, 3);
 
         // set adjacent for each field
         // row 1
@@ -100,7 +101,6 @@ class AStarTest extends PHPUnit_Framework_TestCase
             $this->field3x3
         ];
 
-
         // row 3
         $this->field3x1->adjacentNodes = [
             $this->field2x1,
@@ -132,11 +132,11 @@ class AStarTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\PathFinder\TestNode', $path[3]);
         $this->assertInstanceOf('\PathFinder\TestNode', $path[4]);
 
-        $this->assertEquals('field1x1', (string) $path[0]);
-        $this->assertEquals('field1x2', (string) $path[1]);
-        $this->assertEquals('field2x2', (string) $path[2]);
-        $this->assertEquals('field2x3', (string) $path[3]);
-        $this->assertEquals('field3x3', (string) $path[4]);
+        $this->assertEquals('field1x1', (string)$path[0]);
+        $this->assertEquals('field1x2', (string)$path[1]);
+        $this->assertEquals('field2x2', (string)$path[2]);
+        $this->assertEquals('field2x3', (string)$path[3]);
+        $this->assertEquals('field3x3', (string)$path[4]);
 
     }
 
@@ -150,9 +150,9 @@ class AStarTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\PathFinder\TestNode', $path[1]);
         $this->assertInstanceOf('\PathFinder\TestNode', $path[2]);
 
-        $this->assertEquals('field1x3', (string) $path[0]);
-        $this->assertEquals('field1x2', (string) $path[1]);
-        $this->assertEquals('field1x1', (string) $path[2]);
+        $this->assertEquals('field1x3', (string)$path[0]);
+        $this->assertEquals('field1x2', (string)$path[1]);
+        $this->assertEquals('field1x1', (string)$path[2]);
 
     }
 }
@@ -182,7 +182,8 @@ class TestNode extends Node
     public function getHCost(Node $target)
     {
         $data = $target->getDataForH();
-        return sqrt(pow(($data['x'] - $this->x),2) + pow($data['y']- $this->y, 2));
+
+        return sqrt(pow(($data['x'] - $this->x), 2) + pow($data['y'] - $this->y, 2));
     }
 
     public function getAdjacentNodes()
@@ -192,12 +193,12 @@ class TestNode extends Node
 
     public function equals(Node $compareTo)
     {
-        return (string) $this == (string) $compareTo;
+        return (string)$this == (string)$compareTo;
     }
 
     public function __toString()
     {
-        return (string) $this->id;
+        return (string)$this->id;
     }
 
     public function getDataForH()
