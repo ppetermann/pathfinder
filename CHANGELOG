@@ -3,4 +3,10 @@ VERSION 0  FIRST RELEASE
 ========================
 
    Version 0.1 - first release
+      15/08/2014 17:31  0.1.1  bit of docs stuff
+         35a7c07 bit more readme
+         8d152c3 bit formatting
+         b497e6e badges - missed a ]
+         ffc8685 badges
+         9f91138 remove empty require
       15/08/2014 16:37  0.1.0  initial release
