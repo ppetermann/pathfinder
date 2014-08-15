@@ -72,4 +72,14 @@ abstract class Node
      * @return string
      */
     abstract public function __toString();
+
+    /**
+     * this method should allow a node
+     * to get the data from the target node getHostCost requires for its heuristic (if needed)
+     * @return array
+     */
+    public function getDataForH()
+    {
+        return [];
+    }
 }
