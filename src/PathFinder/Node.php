@@ -96,7 +96,6 @@ abstract class Node
     /**
      * should return a unique string for this
      *
-     * @todo replace with an own method
      * @return string
      */
     abstract public function __toString();

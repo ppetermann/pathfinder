@@ -32,7 +32,6 @@ use PHPUnit_Framework_TestCase;
 /**
  * Class AStarTest
  *
- * @todo add a test where there is no middle field
  * @package PathFinder
  */
 class AStarTest extends PHPUnit_Framework_TestCase
