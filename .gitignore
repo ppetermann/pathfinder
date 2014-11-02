@@ -1,6 +1,2 @@
 vendor
-nbproject
-.DS_Store
-.idea
-cache.properties
 composer.lock
