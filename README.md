@@ -4,6 +4,7 @@
 [![Build Status](https://scrutinizer-ci.com/g/ppetermann/pathfinder/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ppetermann/pathfinder/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ppetermann/pathfinder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ppetermann/pathfinder/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/ppetermann/pathfinder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ppetermann/pathfinder/?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/6a3a8401-9124-4139-a080-b06f9901fe16/mini.png)](https://insight.sensiolabs.com/projects/6a3a8401-9124-4139-a080-b06f9901fe16)
 
 ## ABOUT
 basically this is a this is a simple a* implementation, which can be used in PHP projects,
