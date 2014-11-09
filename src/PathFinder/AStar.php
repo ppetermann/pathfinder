@@ -26,13 +26,21 @@
 */
 namespace PathFinder;
 
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
+
 /**
  * Class AStar
  *
  * @package PathFinder
  */
-class AStar
+class AStar implements LoggerAwareInterface
 {
+    /**
+     * we use the trait here, which will provide a setLogger method, and a logger member
+     */
+    use LoggerAwareTrait;
+
     /**
      * @var Node[]
      */
@@ -43,18 +51,32 @@ class AStar
      */
     protected $closed = [];
 
+    /**
+     * @var
+     */
+    protected $logger;
+
+    /**
+     * find a path from Node $start to Node $end
+     * @param Node $start
+     * @param Node $end
+     * @return array|Node[]
+     */
     public function findPath(Node $start, Node $end)
     {
         // no path if there is no need for moving
         if ($start->equals($end)) {
+            $this->getLogger()->debug("$start equals $end, route is empty");
             return [];
         }
 
+        $this->getLogger()->debug("adding $start to open nodes (start)");
         $this->addToOpen($start);
 
         $foundTarget = false;
 
         while (!$foundTarget && count($this->open) > 0) {
+            $this->getLogger()->debug("sorting open nodes by cost. Node count:" . count($this->open));
             uasort(
                 $this->open,
                 function (Node $a, Node $b) use ($end) {
@@ -72,10 +94,13 @@ class AStar
             /** @var Node $current */
             $current = array_shift($this->open);
 
+            $this->getLogger()->debug("current node selected: " . $current);
+
             if ((string)$current == (string)$end) {
                 $foundTarget = $current;
                 // we don't need to look at its adjacents anymore,
                 // as we do have our route
+                $this->getLogger()->debug("current node is target node, exciting loop");
                 continue;
             }
 
@@ -83,23 +108,26 @@ class AStar
 
             foreach ($adjacent as $node) {
                 if (in_array((string)$node, $this->closed)) {
+                    $this->getLogger()->debug("skipping adjacent: $node as it was already processed");
                     continue;
                 }
                 $node->setParent($current);
+                $this->getLogger()->debug("adding adjacent node to open: $node");
                 $this->addToOpen($node);
             }
-
+            $this->getLogger()->debug("adding $current to closed");
             $this->addToClosed($current);
 
         }
 
         // we failed to find a route
         if (!$foundTarget && count($this->open) == 0) {
+            $this->getLogger()->debug("no open nodes left, and no target found.");
             return [];
         }
 
+        $this->getLogger()->debug("found route!");
         /** @var Node $foundTarget */
-
         return $this->createRouteList($foundTarget);
 
     }
@@ -141,5 +169,19 @@ class AStar
         $route = array_reverse($route);
 
         return $route;
+    }
+
+    /**
+     * return a logger
+     * @return \Psr\Log\LoggerInterface
+     */
+    protected function getLogger()
+    {
+        // as no one has set a logger, we use Psr's null logger here
+        // as a default behaviour
+        if (is_null($this->logger)) {
+            $this->setLogger(new \Psr\Log\NullLogger());
+        }
+        return $this->logger;
     }
 }
