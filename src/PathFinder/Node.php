@@ -60,7 +60,7 @@ abstract class Node
      */
     public function getGCost()
     {
-        if(!is_null($this->gCost)) {
+        if(is_null($this->gCost)) {
             $this->gCost =
                 $this->parent ? $this->parent->getGCost() + $this->getOwnCost() : $this->getOwnCost();
         }
