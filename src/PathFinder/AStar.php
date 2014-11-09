@@ -52,11 +52,6 @@ class AStar implements LoggerAwareInterface
     protected $closed = [];
 
     /**
-     * @var
-     */
-    protected $logger;
-
-    /**
      * find a path from Node $start to Node $end
      * @param Node $start
      * @param Node $end
