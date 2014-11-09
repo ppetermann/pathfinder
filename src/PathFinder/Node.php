@@ -35,7 +35,7 @@ abstract class Node
     protected $parent = false;
 
     /**
-     * @var int
+     * @var int|float
      */
     protected $gCost;
 
