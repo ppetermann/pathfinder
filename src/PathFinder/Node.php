@@ -35,6 +35,11 @@ abstract class Node
     protected $parent = false;
 
     /**
+     * @var int
+     */
+    protected $gCost;
+
+    /**
      * @param Node $parent
      */
     public function setParent(Node $parent)
@@ -55,11 +60,12 @@ abstract class Node
      */
     public function getGCost()
     {
-        if (!$this->parent) {
-            return $this->getOwnCost();
+        if(!is_null($this->gCost)) {
+            $this->gCost =
+                $this->parent ? $this->parent->getGCost() + $this->getOwnCost() : $this->getOwnCost();
         }
 
-        return $this->parent->getGCost() + $this->getOwnCost();
+        return $this->gCost;
     }
 
     /**

@@ -65,7 +65,6 @@ class AStar implements LoggerAwareInterface
             return [];
         }
 
-        $this->getLogger()->debug("adding $start to open nodes (start)");
         $this->addToOpen($start);
 
         $foundTarget = false;
@@ -107,10 +106,8 @@ class AStar implements LoggerAwareInterface
                     continue;
                 }
                 $node->setParent($current);
-                $this->getLogger()->debug("adding adjacent node to open: $node");
                 $this->addToOpen($node);
             }
-            $this->getLogger()->debug("adding $current to closed");
             $this->addToClosed($current);
 
         }
@@ -136,8 +133,10 @@ class AStar implements LoggerAwareInterface
             isset($this->open[(string)$node])
             && $this->open[(string)$node]->getGCost() < $node->getGCost()
         ) {
+            $this->getLogger()->debug("skipping add, $node is already known and gcost <= new path");
             return;
         }
+        $this->getLogger()->debug("adding new open node: $node");
         $this->open[(string)$node] = $node;
     }
 
@@ -146,6 +145,7 @@ class AStar implements LoggerAwareInterface
      */
     protected function addToClosed(Node $node)
     {
+        $this->getLogger()->debug("adding $node to closed");
         $this->closed[] = (string)$node;
     }
 
