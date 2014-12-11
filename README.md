@@ -1,4 +1,4 @@
-# PathFinder (Version: 0.2.0)
+# PathFinder (Version: 0.2.1)
 [![Version](http://img.shields.io/packagist/v/devedge/pathfinder.svg)](https://packagist.org/packages/devedge/pathfinder)
 [![License](http://img.shields.io/packagist/l/devedge/pathfinder.svg)](https://github.com/ppetermann/pathfinder)
 [![Build Status](https://scrutinizer-ci.com/g/ppetermann/pathfinder/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ppetermann/pathfinder/build-status/master)
