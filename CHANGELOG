@@ -2,6 +2,17 @@
 VERSION 0  FIRST RELEASE
 ========================
 
+   Version 0.2 - speed & logging improvements
+      16/11/2014 21:30  0.2.0  initial release
+         0b586e9 doc fix
+         5f03ff0 yeah, we want costs when costs are there...
+         6c89ab1 more logging + gcost cache
+         ebb4b3d removed property thats defined through trait
+         571455a added some optional logging
+         ccc2d1d adding badge
+         d39161d removing todo's
+         28fd8c9 bit of cleanup
+
    Version 0.1 - first release
       15/08/2014 17:31  0.1.1  bit of docs stuff
          35a7c07 bit more readme
