@@ -74,14 +74,7 @@ class AStar implements LoggerAwareInterface
             uasort(
                 $this->open,
                 function (Node $a, Node $b) use ($end) {
-                    if ($a->getFCost($end) == $b->getFCost($end)) {
-                        return 0;
-                    }
-                    if ($a->getFCost($end) < $b->getFCost($end)) {
-                        return -1;
-                    }
-
-                    return 1;
+                    return $a->getFCost($end) - $b->getFCost($end);
                 }
             );
 
