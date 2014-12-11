@@ -132,7 +132,7 @@ class AStarTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\PathFinder\TestNode', $path[4]);
 
         $this->assertEquals('field1x1', (string)$path[0]);
-        $this->assertEquals('field1x2', (string)$path[1]);
+        $this->assertEquals('field2x1', (string)$path[1]);
         $this->assertEquals('field2x2', (string)$path[2]);
         $this->assertEquals('field2x3', (string)$path[3]);
         $this->assertEquals('field3x3', (string)$path[4]);
