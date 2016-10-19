@@ -79,7 +79,8 @@ class AStar implements LoggerAwareInterface
             );
 
             /** @var Node $current */
-            $current = array_shift($this->open);
+            $current = $this->open[array_keys($this->open)[0]];
+            unset($this->open[array_keys($this->open)[0]]); 
 
             $this->getLogger()->debug("current node selected: " . $current);
 
