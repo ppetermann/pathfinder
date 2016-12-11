@@ -3,6 +3,10 @@ VERSION 0  FIRST RELEASE
 ========================
 
    Version 0.2 - speed & logging improvements
+      11/12/2016 11:27  0.2.2  bugfix for special case when using numeric ids
+         5207243 workaround for unprecise test
+         ac0f9dc Merge pull request #1 from godzie44/patch-1
+         36cccf9 Update AStar.php
       11/12/2014 10:20  0.2.1  sorting improvements
          47d575c other same value path found first now
          363e4dc Merge branch 'master' of git://github.com/ppetermann/pathfinder
